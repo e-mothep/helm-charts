@@ -133,3 +133,45 @@ postgresql:
       postgresqlUsername: "pgDevis"
       servicePort: "5432"
 
+quote:
+  server:
+    port: 8081
+  logging:
+    level:
+      org: INFO
+  spring:
+    flyway:
+      schemas:
+        - devis
+      locations:
+        - classpath:db/migration
+    jooq:
+      sql-dialect: postgres
+    application:
+      name: backend
+    datasource:
+      url: jdbc:postgresql://localhost:5432/devis_db
+      username: pgDevis
+      password: devisPwd
+    security:
+      oauth2:
+        client:
+          registration:
+            keycloak:
+              client-id: 13
+              client-secret: EiVeNsJnA6tuhZfU7rr8hd4uG4C5Hkix
+          provider:
+            keycloak:
+              authorizationUri: http://localhost:8080/realms/master/protocol/openid-connect/auth
+              tokenUri: http://localhost:8080/realms/master/protocol/openid-connect/token
+              userInfoUri: http://localhost:8080/realms/master/protocol/openid-connect/userinfo
+              issuerUri: http://localhost:8080/realms/master
+              jwkSetUri: http://localhost:8080/realms/master/protocol/openid-connect/certs
+              userNameAttribute: sub
+        resourceserver:
+          jwt:
+            issuerUri: http://localhost:8080/realms/master
+            jwkSetUri: http://localhost:8080/realms/master/protocol/openid-connect/certs
+
+env:
+  SPRING_CONFIG_LOCATION: /config/application.yaml
