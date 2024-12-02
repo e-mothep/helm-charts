@@ -3,6 +3,22 @@ entries:
   quote-app-back:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2024-12-02T16:17:51.490445494Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 16.0.4
+    description: A Helm chart for Kubernetes
+    digest: e4ceb1f93b2574b53f3291f198a010e9f55aa423cfe8ad121d273d0b9512fd6c
+    icon: https://artifacthub.io/static/media/placeholder_pkg_helm.png
+    name: quote-app-back
+    type: application
+    urls:
+    - https://github.com/e-mothep/helm-charts/releases/download/quote-app-back-0.1.5/quote-app-back-0.1.5.tgz
+    version: 0.1.5
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2024-12-02T16:14:17.283511813Z"
     dependencies:
     - condition: postgresql.enabled
@@ -81,4 +97,4 @@ entries:
     urls:
     - https://github.com/e-mothep/helm-charts/releases/download/quote-app-back-0.1.0/quote-app-back-0.1.0.tgz
     version: 0.1.0
-generated: "2024-12-02T16:14:17.28353735Z"
+generated: "2024-12-02T16:17:51.490467044Z"
