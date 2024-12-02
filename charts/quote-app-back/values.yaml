@@ -123,15 +123,29 @@ tolerations: []
 
 affinity: {}
 
+# helm install psql bitnami/postgresql --namespace keycloak \
+#   --set global.postgresql.auth.postgresPassword=manage    \
+#   --set global.postgresql.auth.username=admindb_emothep                \
+#   --set global.postgresql.auth.password=Qqz41kheops*5tNm            \
+#   --set global.postgresql.auth.database=keycloak              \
+#   --set primary.persistence.size=2Gi                     \
+#   --set global.storageClass=standard
+
 # Postgresql configuration
 postgresql:
   enabled: true
+  primary:
+    persistence:
+      size: 2Gi
   global:
     postgresql:
-      postgresqlDatabase: "devis_db"
-      postgresqlPassword: "devisPwd"
-      postgresqlUsername: "pgDevis"
-      servicePort: "5432"
+      auth:
+        postgresPassword: manage
+        password: devisPwd
+        username: pgDevis
+        database: devis_db
+    storageClass: standard
+    
 
 quote:
   server:
@@ -150,7 +164,7 @@ quote:
     application:
       name: backend
     datasource:
-      url: jdbc:postgresql://localhost:5432/devis_db
+      url: jdbc:postgresql://back-postgresql.quote.svc.cluster.local:5432/devis_db
       username: pgDevis
       password: devisPwd
     security:
