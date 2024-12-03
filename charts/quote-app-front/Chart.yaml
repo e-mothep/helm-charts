@@ -27,5 +27,5 @@ appVersion: "0.1.0"
 dependencies:
 - name: quote-app-back
   version: "0.1.16"
-  repository: " https://e-mothep.github.io/helm-charts"
+  repository: "https://e-mothep.github.io/helm-charts"
   condition: quote.enabled
