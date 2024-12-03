@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ include "quote-app-back.fullname" . }
+  name: {{ include "quote-app-back.fullname" . }}
 data:
   application.yaml: |
     {{- include "quote-app-back.application.yaml" . | nindent 4 }}
