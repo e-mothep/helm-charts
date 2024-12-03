@@ -51,8 +51,7 @@ spec:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
             - name: config-volume
-              mountPath: /config
-              subPath: application.yaml
+              mountPath: /config/
       volumes:
         - name: config-volume
           configMap:
