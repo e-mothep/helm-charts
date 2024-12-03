@@ -1,4 +1,5 @@
 apiVersion: v2
+name: quote-app-front
 description: Quote front app is a Angular project by E-Mothep
 icon: https://artifacthub.io/static/media/placeholder_pkg_helm.png
 
