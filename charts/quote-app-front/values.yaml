@@ -1,4 +1,4 @@
-# Default values for quote-app-back.
+# Default values for quote-app-front.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
@@ -7,7 +7,7 @@ replicaCount: 1
 
 # This sets the container image more information can be found here: https://kubernetes.io/docs/concepts/containers/images/
 image:
-  repository: harbor.e-mothep.com/keyopssys/quote-app-back
+  repository: harbor.e-mothep.com/keyopssys/quote-app-front
   # This sets the pull policy for images.
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
@@ -17,8 +17,8 @@ image:
 imagePullSecrets:
   - name: regcred
 # This is to override the chart name.
-nameOverride: "quote-back"
-fullnameOverride: "keyopssys-quote-back"
+nameOverride: "quote-front"
+fullnameOverride: "keyopssys-quote-front"
 
 #This section builds out the service account more information can be found here: https://kubernetes.io/docs/concepts/security/service-accounts/
 serviceAccount:
@@ -55,17 +55,17 @@ service:
   # This sets the service type more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types
   type: ClusterIP
   # This sets the ports more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/#field-spec-ports
-  port: 8081
+  port: 80
 
 # This block is for setting up the ingress for more information can be found here: https://kubernetes.io/docs/concepts/services-networking/ingress/
 ingress:
-  enabled: false
-  className: ""
+  enabled: true
+  className: "nginx"
   annotations: {}
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:
-    - host: quote-back.e-mothep.local
+    - host: quote.e-mothep.local
       paths:
         - path: /
           pathType: ImplementationSpecific
@@ -90,11 +90,11 @@ resources: {}
 livenessProbe:
   httpGet:
     path: /
-    port: 8081
+    port: http
 readinessProbe:
   httpGet:
     path: /
-    port: 8081
+    port: http
 
 #This section is for setting up autoscaling more information can be found here: https://kubernetes.io/docs/concepts/workloads/autoscaling/
 autoscaling:
@@ -123,82 +123,5 @@ tolerations: []
 
 affinity: {}
 
-# helm install psql bitnami/postgresql --namespace keycloak \
-#   --set global.postgresql.auth.postgresPassword=manage    \
-#   --set global.postgresql.auth.username=admindb_emothep                \
-#   --set global.postgresql.auth.password=Qqz41kheops*5tNm            \
-#   --set global.postgresql.auth.database=keycloak              \
-#   --set primary.persistence.size=2Gi                     \
-#   --set global.storageClass=standard
-
-# Postgresql configuration
-postgresql:
-  enabled: true
-  primary:
-    persistence:
-      size: 2Gi
-  global:
-    postgresql:
-      auth:
-        postgresPassword: manage
-        password: devisPwd
-        username: pgDevis
-        database: devis_db
-    storageClass: standard
-    
-
 quote:
-  server:
-    port: 8081
-  logging:
-    level:
-      org: INFO
-  spring:
-    flyway:
-      schemas:
-        - devis
-      locations:
-        - classpath:db/migration
-    jooq:
-      sql-dialect: postgres
-    application:
-      name: backend
-    datasource:
-      url: jdbc:postgresql://back-postgresql.quote.svc.cluster.local:5432/devis_db
-      username: pgDevis
-      password: devisPwd
-    mail:
-      host: sandbox.smtp.mailtrap.io
-      port: 587
-      username: 09665d41ebc9e9
-      password: 6a17d60b04f667
-      properties:
-        mail:
-          protocol: smtp
-          tls: true
-          smtp:
-            auth: true
-            starttls:
-              enable: true
-    security:
-      oauth2:
-        client:
-          registration:
-            keycloak:
-              clientId: gds-test
-              clientSecret: saOTA3vb2a2Pwr4iN20HHlaqZ5DbbC7e
-          provider:
-            keycloak:
-              authorizationUri: https://login.keyopssys.com/realms/dev/protocol/openid-connect/auth
-              tokenUri: https://login.keyopssys.com/realms/dev/protocol/openid-connect/token
-              userInfoUri: https://login.keyopssys.com/realms/dev/protocol/openid-connect/userinfo
-              issuerUri: https://login.keyopssys.com/realms/dev
-              jwkSetUri: https://login.keyopssys.com/realms/dev/protocol/openid-connect/certs
-              userNameAttribute: sub
-        resourceserver:
-          jwt:
-            issuerUri: https://login.keyopssys.com/realms/dev
-            jwkSetUri: https://login.keyopssys.com/realms/dev/protocol/openid-connect/certs
-
-env:
-  SPRING_CONFIG_LOCATION: /config/application.yaml
+  enable: true
