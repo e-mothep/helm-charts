@@ -167,13 +167,26 @@ quote:
       url: jdbc:postgresql://back-postgresql.quote.svc.cluster.local:5432/devis_db
       username: pgDevis
       password: devisPwd
+    mail:
+      host: sandbox.smtp.mailtrap.io
+      port: 587
+      username: 09665d41ebc9e9
+      password: 6a17d60b04f667
+      properties:
+        mail:
+          protocol: smtp
+          tls: true
+          smtp:
+            auth: true
+            starttls:
+              enable: true
     security:
       oauth2:
         client:
           registration:
             keycloak:
-              client-id: gds-test
-              client-secret: saOTA3vb2a2Pwr4iN20HHlaqZ5DbbC7e
+              clientId: gds-test
+              clientSecret: saOTA3vb2a2Pwr4iN20HHlaqZ5DbbC7e
           provider:
             keycloak:
               authorizationUri: https://login.keyopssys.com/realms/dev/protocol/openid-connect/auth

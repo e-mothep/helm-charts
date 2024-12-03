@@ -88,6 +88,19 @@ spring:
     url: {{ .Values.quote.spring.datasource.url }}
     username: {{ .Values.quote.spring.datasource.username }}
     password: {{ .Values.quote.spring.datasource.password }}
+  mail:
+    host: {{ .Values.quote.spring.mail.host }}
+    port: {{ .Values.quote.spring.mail.port }}
+    username: {{ .Values.quote.spring.mail.username }}
+    password: {{ .Values.quote.spring.mail.password }}
+    properties:
+      mail:
+        protocol: {{ .Values.quote.spring.mail.properties.mail.protocol }}
+        tls: {{ .Values.quote.spring.mail.properties.mail.tls }}
+        smtp:
+          auth: {{ .Values.quote.spring.mail.properties.mail.smtp.auth }}
+          starttls:
+            enable: {{ .Values.quote.spring.mail.properties.mail.smtp.auth.starttls }}
   security:
     oauth2:
       client:
