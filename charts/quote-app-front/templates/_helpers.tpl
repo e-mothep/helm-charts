@@ -61,8 +61,8 @@ Create the name of the service account to use
 {{- end }}
 {{- end }}
 
-{{*/
-Create nginx configuration 
+{{/*
+Create the name of the service account to use
 */}}
 {{- define "quote-app-front.nginx.conf" -}}
 upstream backend {
