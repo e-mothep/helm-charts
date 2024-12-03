@@ -3,6 +3,22 @@ entries:
   quote-app-back:
   - apiVersion: v2
     appVersion: 0.1.0
+    created: "2024-12-03T11:49:33.817766673Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 16.0.4
+    description: Quote app is a Spring Boot project by E-Mothep
+    digest: 5a8137a392a7ea2fbb9cb91408b6167652b7a8eeb00321ecd7faee8a1b68a1d2
+    icon: https://artifacthub.io/static/media/placeholder_pkg_helm.png
+    name: quote-app-back
+    type: application
+    urls:
+    - https://github.com/e-mothep/helm-charts/releases/download/quote-app-back-0.1.14/quote-app-back-0.1.14.tgz
+    version: 0.1.14
+  - apiVersion: v2
+    appVersion: 0.1.0
     created: "2024-12-03T11:43:42.999471353Z"
     dependencies:
     - condition: postgresql.enabled
@@ -225,4 +241,4 @@ entries:
     urls:
     - https://github.com/e-mothep/helm-charts/releases/download/quote-app-back-0.1.0/quote-app-back-0.1.0.tgz
     version: 0.1.0
-generated: "2024-12-03T11:43:42.999554228Z"
+generated: "2024-12-03T11:49:33.817892688Z"
