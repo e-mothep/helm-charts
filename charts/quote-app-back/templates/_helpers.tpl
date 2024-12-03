@@ -100,7 +100,7 @@ spring:
         smtp:
           auth: {{ .Values.quote.spring.mail.properties.mail.smtp.auth }}
           starttls:
-            enable: {{ .Values.quote.spring.mail.properties.mail.smtp.auth.starttls }}
+            enable: {{ .Values.quote.spring.mail.properties.mail.smtp.starttls.enable }}
   security:
     oauth2:
       client:
