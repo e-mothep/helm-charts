@@ -70,41 +70,41 @@ server:
   logging:
     level:
       org: {{ .Values.quote.logging.level.org }}
-  spring:
-    flyway:
-      schemas:
-        {{- range .Values.quote.spring.flyway.schemas }}
-        - {{ . }}
-        {{- end }}
-      locations:
-        {{- range .Values.quote.spring.flyway.locations }}
-        - {{ . }}
-        {{- end }}
-    jooq:
-      sql-dialect: {{ .Values.quote.spring.jooq.dialect }}
-    application:
-      name: {{ .Values.quote.spring.application.name }}
-    datasource:
-      url: {{ .Values.quote.spring.datasource.url }}
-      username: {{ .Values.quote.spring.datasource.username }}
-      password: {{ .Values.quote.spring.datasource.password }}
-    security:
-      oauth2:
-        client:
-          registration:
-            keycloak:
-              client-id: {{ .Values.quote.spring.security.oauth2.client.registration.keycloak.clientId }}
-              client-secret: {{ .Values.quote.spring.security.oauth2.client.registration.keycloak.clientSecret }}
-          provider:
-            keycloak:
-              authorization-uri: {{ .Values.quote.spring.security.oauth2.client.provider.keycloak.authorizationUri }}
-              token-uri: {{ .Values.quote.spring.security.oauth2.client.provider.keycloak.tokenUri }}
-              user-info-uri: {{ .Values.quote.spring.security.oauth2.client.provider.keycloak.userInfoUri }}
-              issuer-uri: {{ .Values.quote.spring.security.oauth2.client.provider.keycloak.issuerUri }}
-              jwk-set-uri: {{ .Values.quote.spring.security.oauth2.client.provider.keycloak.jwkSetUri }}
-              user-name-attribute: {{ .Values.quote.spring.security.oauth2.client.provider.keycloak.userNameAttribute }}
-        resourceserver:
-          jwt:
-            issuer-uri: {{ .Values.quote.spring.security.oauth2.resourceserver.jwt.issuerUri }}
-            jwk-set-uri: {{ .Values.quote.spring.security.oauth2.resourceserver.jwt.jwkSetUri }}
+spring:
+  flyway:
+    schemas:
+      {{- range .Values.quote.spring.flyway.schemas }}
+      - {{ . }}
+      {{- end }}
+    locations:
+      {{- range .Values.quote.spring.flyway.locations }}
+      - {{ . }}
+      {{- end }}
+  jooq:
+    sql-dialect: {{ .Values.quote.spring.jooq.dialect }}
+  application:
+    name: {{ .Values.quote.spring.application.name }}
+  datasource:
+    url: {{ .Values.quote.spring.datasource.url }}
+    username: {{ .Values.quote.spring.datasource.username }}
+    password: {{ .Values.quote.spring.datasource.password }}
+  security:
+    oauth2:
+      client:
+        registration:
+          keycloak:
+            client-id: {{ .Values.quote.spring.security.oauth2.client.registration.keycloak.clientId }}
+            client-secret: {{ .Values.quote.spring.security.oauth2.client.registration.keycloak.clientSecret }}
+        provider:
+          keycloak:
+            authorization-uri: {{ .Values.quote.spring.security.oauth2.client.provider.keycloak.authorizationUri }}
+            token-uri: {{ .Values.quote.spring.security.oauth2.client.provider.keycloak.tokenUri }}
+            user-info-uri: {{ .Values.quote.spring.security.oauth2.client.provider.keycloak.userInfoUri }}
+            issuer-uri: {{ .Values.quote.spring.security.oauth2.client.provider.keycloak.issuerUri }}
+            jwk-set-uri: {{ .Values.quote.spring.security.oauth2.client.provider.keycloak.jwkSetUri }}
+            user-name-attribute: {{ .Values.quote.spring.security.oauth2.client.provider.keycloak.userNameAttribute }}
+      resourceserver:
+        jwt:
+          issuer-uri: {{ .Values.quote.spring.security.oauth2.resourceserver.jwt.issuerUri }}
+          jwk-set-uri: {{ .Values.quote.spring.security.oauth2.resourceserver.jwt.jwkSetUri }}
 {{- end -}}
