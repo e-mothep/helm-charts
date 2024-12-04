@@ -273,4 +273,16 @@ entries:
     urls:
     - https://github.com/e-mothep/helm-charts/releases/download/quote-app-back-0.1.0/quote-app-back-0.1.0.tgz
     version: 0.1.0
-generated: "2024-12-03T12:03:44.419331679Z"
+  quote-app-front:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2024-12-04T06:34:15.392809822Z"
+    description: Quote front app is a Angular project by E-Mothep
+    digest: 9362c54ceef37aeb88aae7a103893663a79081e03aec88ab95eaa2c8415ce72f
+    icon: https://artifacthub.io/static/media/placeholder_pkg_helm.png
+    name: quote-app-front
+    type: application
+    urls:
+    - https://github.com/e-mothep/helm-charts/releases/download/quote-app-front-0.1.2/quote-app-front-0.1.2.tgz
+    version: 0.1.2
+generated: "2024-12-04T06:34:15.392874242Z"
