@@ -65,14 +65,14 @@ ingress:
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:
-    - host: quote.e-mothep.local
+    - host: rec-quote.keyopssys.e-mothep.local
       paths:
         - path: /
           pathType: ImplementationSpecific
-  tls: []
-  #  - secretName: chart-example-tls
-  #    hosts:
-  #      - chart-example.local
+  tls:
+    - secretName: rec-quote.keyopssys.e-mothep.local-tls
+      hosts:
+        - rec-quote.keyopssys.e-mothep.local
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
@@ -124,6 +124,6 @@ tolerations: []
 affinity: {}
 
 quote:
-  enable: false
+  enabled: false
   host: keyopssys-quote-back.quote.svc.cluster.local
   port: 8081
