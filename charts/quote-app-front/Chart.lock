@@ -1,6 +1,0 @@
-dependencies:
-- name: quote-app-back
-  repository: https://e-mothep.github.io/helm-charts
-  version: 0.1.16
-digest: sha256:5bf6ae3f25a451825fdc4145bbc84342d11d15c98d11508e07221047b5eb1efa
-generated: "2024-12-03T17:34:08.30279633+01:00"
