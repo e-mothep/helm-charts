@@ -124,4 +124,6 @@ tolerations: []
 affinity: {}
 
 quote:
-  enable: true
+  enable: false
+  host: keyopssys-quote-back.quote.svc.cluster.local
+  port: 8081

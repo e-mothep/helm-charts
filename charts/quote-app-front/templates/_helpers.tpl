@@ -66,7 +66,7 @@ Create the name of the service account to use
 */}}
 {{- define "quote-app-front.nginx.conf" -}}
 upstream backend {
-  server {{ .Values.quote.server }};
+  server {{ .Values.quote.host }}:{{ .Values.quote.port }};
 }
 
 server {
