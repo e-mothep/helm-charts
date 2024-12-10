@@ -276,6 +276,22 @@ entries:
   quote-app-front:
   - apiVersion: v2
     appVersion: 0.1.0
+    created: "2024-12-10T15:17:45.331966742Z"
+    dependencies:
+    - condition: quote.enabled
+      name: quote-app-back
+      repository: https://e-mothep.github.io/helm-charts
+      version: 0.1.16
+    description: Quote front app is a Angular project by E-Mothep
+    digest: 461f6a0a4f2a995a1413f54f0911bfb773ef736e47f10dd60ec35a0f9a704091
+    icon: https://artifacthub.io/static/media/placeholder_pkg_helm.png
+    name: quote-app-front
+    type: application
+    urls:
+    - https://github.com/e-mothep/helm-charts/releases/download/quote-app-front-0.1.7/quote-app-front-0.1.7.tgz
+    version: 0.1.7
+  - apiVersion: v2
+    appVersion: 0.1.0
     created: "2024-12-04T12:14:11.872381486Z"
     dependencies:
     - condition: quote.enabled
@@ -349,4 +365,4 @@ entries:
     urls:
     - https://github.com/e-mothep/helm-charts/releases/download/quote-app-front-0.1.2/quote-app-front-0.1.2.tgz
     version: 0.1.2
-generated: "2024-12-04T12:14:11.87244255Z"
+generated: "2024-12-10T15:17:45.332025812Z"
