@@ -76,7 +76,7 @@ server {
     #access_log  /var/log/nginx/host.access.log  main;
 
     location /api/ {
-        rewrite ^/api(/.*)$ $1 break;
+        rewrite ^/api(/.*)$ /v1$1 break;
         proxy_pass         http://backend;
         proxy_redirect     off;
 	add_header 'Access-Control-Allow-Origin' '*';
