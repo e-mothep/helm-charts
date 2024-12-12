@@ -4,6 +4,7 @@ on:
     types: [Integration-with-Automation]
 jobs:
   update-chart:
+    permissions: write-all
     runs-on: ubuntu-latest
     steps:
       - name: Checkout project
