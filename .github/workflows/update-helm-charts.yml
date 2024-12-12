@@ -1,0 +1,23 @@
+name: Update Helm Charts :rocket:
+on:
+  repository_dispatch:
+    types: [Integration-with-Automation]
+jobs:
+  update-chart:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout project
+        uses: e-mothep/shared-workflow-docker/.github/checkout-submodule@main
+        with:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PEM : ${{ secrets.APP_PEM }}
+      - name: Update Image Version in the related HelmChart values.yaml
+        uses: fjogeleit/yaml-update-action@main
+        with:
+          valueFile: 'charts/${{ github.event.client_payload.app }}/values.yaml'
+          propertyPath: 'image.tag'
+          value: ${{ github.event.client_payload.version }}
+          branch: deployment/${{ github.event.client_payload.app }}-${{ github.event.client_payload.version }}
+          targetBranch: development
+          createPR: true
+          message: 'Update ${{ github.event.client_payload.app }} Image Version to ${{ steps.image.outputs.version }}' 
