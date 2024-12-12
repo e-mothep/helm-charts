@@ -18,7 +18,7 @@ jobs:
           propertyPath: 'image.tag'
           value: ${{ github.event.client_payload.version }}
           branch: deployment/${{ github.event.client_payload.app }}-${{ github.event.client_payload.version }}
-          targetBranch: development
+          targetBranch: main
           masterBranchName: main
           createPR: true
           message: 'Update ${{ github.event.client_payload.app }} Image Version to ${{ steps.image.outputs.version }}' 
