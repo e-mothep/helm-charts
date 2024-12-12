@@ -1,4 +1,4 @@
-name: Update Helm Charts :rocket:
+name: Update Helm Charts
 on:
   repository_dispatch:
     types: [Integration-with-Automation]
