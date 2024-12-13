@@ -85,6 +85,8 @@ quote:
         api: {{ .Values.quote.config.security.filterChain.api }}
 server:
   port: {{ .Values.quote.server.port }}
+  servlet:
+    context-path: /${quote.config.version}
   logging:
     level:
       org: {{ .Values.quote.logging.level.org }}
