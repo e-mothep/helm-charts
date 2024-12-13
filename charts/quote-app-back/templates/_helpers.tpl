@@ -65,6 +65,24 @@ Create the name of the service account to use
 Create the application profil file
 */}}
 {{- define "quote-app-back.application.yaml" -}}
+quote:
+  config:
+    version: {{ .Values.quote.config.version }}
+    geoloc:
+      uri: https://${quote.config.geoloc.base-url}/search/${quote.config.geoloc.version-number}/reverseGeocode/${quote.config.geoloc.position}.${quote.config.geoloc.ext}?key=${quote.config.geoloc.key}
+      base-url: {{ .Values.quote.config.geoloc.baseUrl }}
+      version-number: {{ .Values.quote.config.geoloc.versionNumber }}
+      position: "%s,%s"
+      ext: {{ .Values.quote.config.geoloc.ext }}
+      key: {{ .Values.quote.config.geoloc.key }}
+    legalinfo:
+      uri: https://${quote.config.legalinfo.base-url}/${quote.config.legalinfo.version}/suggestions?q=%s&longueur=%s
+      base-url: {{ .Values.quote.config.legalinfo.baseUrl }}
+      version: {{ .Values.quote.config.legalinfo.version }}
+    security:
+      filter-chain:
+        login: {{ .Values.quote.config.security.filterChain.login }}
+        api: {{ .Values.quote.config.security.filterChain.api }}
 server:
   port: {{ .Values.quote.server.port }}
   logging:
