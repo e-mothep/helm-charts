@@ -100,7 +100,7 @@ quote:
       password: devisPwd
     mail:
       host: ssl0.ovh.net
-      port: 465
+      port: 587
       username: no-reply@keyopssys.com
       password: P*7@FCGul"CrHRJ`iDA/
       properties:
