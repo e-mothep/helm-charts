@@ -2,7 +2,7 @@ replicaCount: 1
 image:
   repository: harbor.e-mothep.com/keyopssys/quote-app-front
   pullPolicy: IfNotPresent
-  tag: 0.14.1
+  tag: 0.14.2
 imagePullSecrets:
   - name: regcred
 nameOverride: quote-front
