@@ -63,7 +63,7 @@ postgresql:
     storageClass: standard
 quote:
   config:
-    version: v1
+    version: api
     geoloc:
       uri: https://${quote.config.geoloc.base-url}/search/${quote.config.geoloc.version-number}/reverseGeocode/${quote.config.geoloc.position}.${quote.config.geoloc.ext}?key=${quote.config.geoloc.key}
       baseUrl: api.tomtom.com
