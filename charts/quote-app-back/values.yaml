@@ -99,10 +99,10 @@ quote:
       username: pgDevis
       password: devisPwd
     mail:
-      host: sandbox.smtp.mailtrap.io
-      port: 587
-      username: 09665d41ebc9e9
-      password: 6a17d60b04f667
+      host: ssl0.ovh.net
+      port: 465
+      username: no-reply@keyopssys.com
+      password: P*7@FCGul"CrHRJ`iDA/
       properties:
         mail:
           protocol: smtp
