@@ -1,0 +1,29 @@
+image:
+  registry: harbor.e-mothep.com
+  repository: amat-ihm/front-amat
+  tag: 0.3.3
+  pullSecrets: ["regcred"]
+  
+command: []
+args: []
+
+extraVolumes:
+  - name: ev-amat-ihm
+    configMap:
+      name: cm-amat-ihm
+
+extraVolumeMounts:
+  - name: ev-amat-ihm
+    mountPath: /usr/share/nginx/html/assets/environment
+    readOnly: true
+    
+service:
+    type: ClusterIP
+    ports:
+      http:
+        port: 80
+    
+ingress:
+  enabled: true
+  hostname: amat-ihm.prod-gifi.e-mothep.local
+  ingressClassName: nginx
