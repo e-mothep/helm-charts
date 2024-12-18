@@ -26,5 +26,5 @@ appVersion: "0.1.0"
 
 dependencies:
 - name: mod-chart
-  version: "5.0.0"
+  version: "4.0.0"
   repository: "https://ygqygq2.github.io/charts/"
